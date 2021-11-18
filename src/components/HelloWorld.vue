@@ -24,10 +24,10 @@ export default {
   data1() {
     return{
       names: [
-      {message: 'SIMBARE jfr'}, 
-      {message: 'GOMA esther'},
-      {message: 'GOMA esther'},
-      {message: 'GOMA esther'}
+      {message: 'Chris'}, 
+      {message: 'Esther'},
+      {message: 'Prince'},
+      {message: 'Zali'}
     ]
     }
   },
