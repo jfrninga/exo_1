@@ -1,47 +1,48 @@
 <template>
   <h1>Hello world</h1>
   <p>We have the dream big</p>
-  <ul id = "exo_1">
+  <ul id = "exo_1"  v-if = isDisplay>
       <li v-for = "name in names" :key="name.message">
         {{name.message}}
       </li>
   </ul>
   <div class="test"> 
-    <button v-on:click = "show">appuyer pour afficher</button>
-    <div v-if = "isDisplay">
-      
-      <button v-on:click = "hide">cacher</button>
+    <div v-if = !isDisplay>
+        <button v-on:click ="isDisplay = true">appuyer pour afficher</button>
+    </div>
+    <div v-if = isDisplay>
+        <button v-on:click ="isDisplay = false">cacher</button>
     </div>
   </div>
 </template>
 
 <script>
+var exo = document.getElementById("exo_1");
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
   },
-  data1() {
+  
+  data() {
     return{
       names: [
       {message: 'Chris'}, 
       {message: 'Esther'},
       {message: 'Prince'},
-      {message: 'Zali'}
-    ]
+      {message: 'Zali'},
+      {message: 'Matt'}
+    ],
+    isDisplay: false
     }
   },
-  data() {
-    return {
-       isDisplay: false
-    };
-  },
+  
   methods: {
     show: function () {
-      this.isDisplay = true;
+      exo.isDisplay = true;
     },
     hide: function () {
-      this.isDisplay = false;
+      exo.isDisplay = false;
     },
   }
 }
@@ -57,10 +58,16 @@ ul {
   padding: 0;
 }
 li {
-  /* display: inline-block; */
+  display: inline-block;
   margin: 0 10px;
 }
 a {
   color: #42b983;
+}
+button {
+  color: white;
+  background-color: rgba(14, 78, 197, 0.801);
+  border-radius: 6px;
+  padding: 5px;
 }
 </style>
